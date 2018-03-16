@@ -1,0 +1,21 @@
+<h1>Project - <%= @project.name %></h1>
+
+<h2>Assignees</h2>
+<table>
+  <% @assignees.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= @assignee_proportions[employee.id].pct_string %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Reporters</h2>
+<table>
+  <% @reporters.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= @reporter_proportions[employee.id].pct_string %></td>
+    </tr>
+  <% end %>
+</table>

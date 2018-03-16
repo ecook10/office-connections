@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Porchdir</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <div id="header">
+      <ul>
+        <li><%= link_to 'Employees', employees_path %></li>
+        <li><%= link_to 'Projects', jira_projects_path %></li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<h1>Coassignee Graph for <%= @employee.name %></h1>
+<p>In time range <%= @time_range %></p>
+
+<h2>2 Degrees</h2>
+<%=
+  react_component(
+    "GraphView",
+    id: "graph-view-2",
+    nodes: @connection_data2[:nodes],
+    links: @connection_data2[:links],
+    selectedNode: @employee_node
+  )
+%>
+
+<h2>1 Degree</h2>
+<%=
+  react_component(
+    "GraphView",
+    id: "graph-view-1",
+    nodes: @connection_data[:nodes],
+    links: @connection_data[:links],
+    selectedNode: @employee_node,
+  )
+%>

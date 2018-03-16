@@ -1,0 +1,62 @@
+<h1>Employee - <%= @employee.name %></h1>
+
+<h2>Projects Assigned</h2>
+<table>
+  <% @assigned_projects.each do |project| %>
+    <tr>
+      <td><%= link_to project.name, jira_project_path(project) %></td>
+      <td><%= @assigned_project_proportions[project.id].pct_string %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Co-Assignees</h2>
+<p><%= link_to "Connection Graph", coassignee_graph_employee_path(@employee) %></p>
+<table>
+  <% @coassignees.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= @coassignment_weights[employee.id].round(4) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Assigned Reporters</h2>
+<table>
+  <% @assigned_reporters.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= @assigned_reporter_weights[employee.id].round(4) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Reporting Projects</h2>
+<table>
+  <% @reported_projects.each do |project| %>
+    <tr>
+      <td><%= link_to project.name, jira_project_path(project) %></td>
+      <td><%= @reported_project_proportions[project.id].pct_string %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Co-Reporters</h2>
+<table>
+  <% @coreporters.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= @coreporter_weights[employee.id].round(4) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Reporting Assignees</h2>
+<table>
+  <% @reporting_assignees.each do |employee| %>
+    <tr>
+      <td><%= link_to employee.name, employee_path(employee) %></td>
+      <td><%= @reporting_assignee_weights[employee.id].round(4) %></td>
+    </tr>
+  <% end  %>
+</table>

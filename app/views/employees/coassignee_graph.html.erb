@@ -1,0 +1,28 @@
+<h1>Coassignee Graph for <%= @employee.name %></h1>
+
+<h2>2 Degrees</h2>
+<%=
+  react_component(
+    "GraphView",
+    id: "graph-view-2",
+    nodes: @connection_data2[:nodes],
+    links: @connection_data2[:links],
+    leadNodeName: @employee_node[:name],
+    selectedNode: @employee_node,
+    assignedProjects: @assigned_project_objects,
+    assignedProjectProportions: @assigned_project_proportions
+  )
+%>
+
+<h2>1 Degree</h2>
+<%=
+  react_component(
+    "GraphView",
+    id: "graph-view-1",
+    nodes: @connection_data[:nodes],
+    links: @connection_data[:links],
+    selectedNode: @employee_node,
+    assignedProjects: @assigned_project_objects,
+    assignedProjectProportions: @assigned_project_proportions
+  )
+%>
